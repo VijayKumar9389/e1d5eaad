@@ -1,0 +1,123 @@
+/* ActivityDetail.css */
+
+/* Animation */
+@keyframes fadeRightToLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(20px); /* Move element 20px to the right */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Move element to its original position */
+    }
+}
+
+/* Container styling */
+.activity-detail-container {
+    animation: fadeRightToLeft 0.3s ease-out; /* Smooth fade-in animation */
+}
+.activity-detail-wrapper {
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 20px auto;
+}
+
+/* Header styling */
+.activity-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    width: 100px; /* Circle size */
+    height: 100px; /* Circle size */
+    border-radius: 50%;
+    background-color: #e0e0e0; /* Background color for the circle */
+    overflow: hidden; /* Ensure icon stays within circle */
+    border: 2px solid #ddd; /* Optional border */
+}
+
+.activity-body {
+    margin-top: 10px;
+    padding: 10px;
+    text-transform: capitalize;
+    text-align: center; /* Center align text */
+    color: #333;
+}
+
+.activity-body p {
+    margin: 5px 0;
+    color: #555555;
+    font-size: 1rem;
+}
+
+.activity-body p:first-child {
+    font-weight: bold;
+}
+
+.activity-body p:nth-child(2) {
+    margin-top: 5px;
+}
+
+.activity-icon {
+    font-size: 36px; /* Icon size */
+    color: #fff; /* Icon color */
+}
+
+.activity-details {
+    gap: 10px; /* Adjust gap between rows/columns as needed */
+}
+
+.activity-details .detail-row {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.activity-details .detail-row:not(:last-child) {
+    border-bottom: 1px solid #ddd; /* Apply border to all except the last child */
+}
+
+.activity-details .detail-label {
+    font-weight: bold;
+    flex: 1;
+    color: #333; /* Adjust label text color */
+}
+
+.error-message {
+    background-color: #ffebee; /* Light red background */
+    color: #c62828; /* Dark red text */
+    border: 1px solid #e57373; /* Light red border */
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.error-message p {
+    margin: 5px 0;
+}
+
+.action-btn {
+    background-color: #2AC420; /* Primary button color */
+    color: #fff; /* Text color */
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #1E9C1B; /* Darker shade for hover */
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.icon {
+    font-size: 24px;
+}

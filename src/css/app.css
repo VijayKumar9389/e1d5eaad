@@ -1,0 +1,75 @@
+#app {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.container {
+  width: 376px;
+  height: 666px;
+  z-index: 100;
+  background: #f0f5f9;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
+  display: flex;
+  flex-direction: column;
+}
+
+.container-view {
+  padding: 20px;
+  overflow-y: auto; /* Changed to auto to show scrollbar when necessary */
+  flex: 1;
+}
+
+/* WebKit (Chrome, Safari, etc.) scrollbar customization */
+.container-view::-webkit-scrollbar {
+  width: 8px; /* width of the scrollbar */
+}
+
+.container-view::-webkit-scrollbar-track {
+  background-color: transparent; /* color of the track */
+}
+
+.container-view::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0; /* color of the scroll thumb */
+  border-radius: 4px; /* roundness of the scroll thumb */
+}
+
+.container-view::-webkit-scrollbar-thumb:hover {
+  background-color: #999; /* color of the scroll thumb on hover */
+}
+
+.page-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #2AC420; /* Primary button color */
+  color: #fff; /* Text color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.page-btn:not(:disabled):hover {
+  background-color: #1E9C1B; /* Darker shade for hover */
+  transform: translateY(-2px); /* Lift on hover */
+}
+
+.page-btn:disabled {
+  background-color: #CCCCCC; /* Light gray background for disabled */
+  color: #999999; /* Dimmed text color */
+  cursor: not-allowed; /* Change cursor to indicate not clickable */
+  box-shadow: none; /* Remove shadow */
+  transform: none; /* Reset transform */
+}

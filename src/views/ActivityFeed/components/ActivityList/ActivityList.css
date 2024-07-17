@@ -1,0 +1,91 @@
+.activities-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.group-date {
+    color: #666;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.activity-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.activity-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.activity-item .call-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.activity-item .activity-number {
+    margin: 5px 0;
+    color: #333;
+    font-weight: bold;
+}
+
+.activity-item p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.activity-item p svg{
+   font-size:  1.2em;
+}
+
+.activity-item .green {
+    color: #2AC420;
+}
+
+.activity-item .red {
+    color: red;
+}
+
+.activity-item .status {
+    font-size:  1.2em;
+}
+
+.activity-item .from,
+.activity-item .to {
+    font-weight: bold;
+}
+
+.activity-item .time {
+    margin-left: auto;
+    font-size: 14px;
+}
+
+.activity-item .archive-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #2ac420;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.activity-item .archive-button:hover {
+    background-color: #218c17;
+}
+
+.no-activities {
+    text-align: center;
+    color: #666;
+    font-size: 1.5em;
+    margin-top: 20px;
+}

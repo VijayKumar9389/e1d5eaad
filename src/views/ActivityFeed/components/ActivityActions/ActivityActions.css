@@ -1,0 +1,41 @@
+/* Submenu CSS */
+.activities-container .sub-menu {
+    display: flex;
+    justify-content: space-around;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    list-style-type: none;
+    position: sticky;
+}
+
+.activities-container .sub-menu .submenu-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0; /* Increased padding for better touch/click target */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-right: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.activities-container .sub-menu .submenu-item:last-child {
+    border-right: none;
+}
+
+.activities-container .sub-menu .submenu-item:hover,
+.activities-container .sub-menu .submenu-item.selected {
+    background-color: #fff;
+    color: #2ac420;
+}
+
+/* Page Actions CSS */
+.actions-wrapper {
+    text-align: center;
+    color: #333;
+    font-size: 1.5em; /* Slightly reduced font size for consistency */
+    margin: 20px 0;
+}
+
