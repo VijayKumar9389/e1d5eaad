@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import './ActivityDetails.css';
 import useFetchActivityByID from "../../hooks/useFetchActivityByID";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { updateActivity } from "../../services/activities.services";
-import { FaUser } from "react-icons/fa";
 import { MdArrowBack } from "react-icons/md";
-import { formatTime, formatDate } from "../../utils/date.helper";
 import {ErrorMessage} from "../../components/Message/Message.jsx";
+import ActivityInfo from "./ActivityInfo/ActivityInfo.jsx";
 
 const ActivityDetail = () => {
     const { id } = useParams();
     const { activity, loading, error } = useFetchActivityByID(id);
     const [isArchived, setIsArchived] = useState(false);
-    const location = useLocation();
 
     // Effect to update archived state when activity changes
     useEffect(() => {
@@ -60,32 +58,13 @@ const ActivityDetail = () => {
             <button className="action-btn" onClick={() => goBack()}>
                 <MdArrowBack className="icon" />
             </button>
-            <div className="activity-detail-wrapper">
-                {/* Header section with user icon */}
-                <div className="activity-header">
-                    <FaUser className="activity-icon" />
-                </div>
-                {/* Body section with call details */}
-                <div className="activity-body">
-                    <p>{`${activity.call_type} ${activity.direction} ${isCallInbound ? 'From' : 'To'} ${isCallInbound ? activity.from : activity.to}`}</p>
-                    <p>{`At ${formatTime(activity.created_at)}`}</p>
-                </div>
-                {/* Additional details section */}
-                <div className="activity-details">
-                    <div className="detail-row">
-                        <p className="detail-label">Date:</p>
-                        <p>{formatDate(activity.created_at)}</p>
-                    </div>
-                    <div className="detail-row">
-                        <p className="detail-label">Duration:</p>
-                        <p className="detail-value">{activity.duration} seconds</p>
-                    </div>
-                    <div className="detail-row">
-                        <p className="detail-label">AirCall Number:</p>
-                        <p className="detail-value">{activity.via}</p>
-                    </div>
-                </div>
-            </div>
+
+            {/* Conditional rendering based on error */}
+            {error
+                ? <ErrorMessage error={`Error fetching activity: ${error.message}`} />
+                : <ActivityInfo activity={activity} isCallInbound={isCallInbound} />
+            }
+
             {/* Button to toggle archive state */}
             <button className="page-btn" onClick={handleArchiveToggle}>
                 {isArchived ? 'Unarchive' : 'Archive'}

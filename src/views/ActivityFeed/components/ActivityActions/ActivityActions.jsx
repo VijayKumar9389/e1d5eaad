@@ -58,14 +58,17 @@ const ActivityActions = ({viewArchived, setIsArchived, activities}) => {
                     {viewArchived ? (
                         <button
                             className="page-btn"
-                            onClick={handleResetActivities}
-                        >
+                            onClick={() => {
+                                handleResetActivities().then(() => window.location.reload())
+                            }}>
                             Reset All
                         </button>
                     ) : (
                         <button
                             className="page-btn"
-                            onClick={() => updateAllActivities(true)}
+                            onClick={() => {
+                                updateAllActivities(true).then(() => window.location.reload());
+                            }}
                         >
                             Archive All
                         </button>
