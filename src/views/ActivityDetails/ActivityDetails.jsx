@@ -43,11 +43,6 @@ const ActivityDetail = () => {
         return null; // Optionally render a loading spinner or message
     }
 
-    // Render error message if fetch fails
-    if (error) {
-        return <ErrorMessage error={`Error fetching activity: ${error.message}`} />;
-    }
-
     // Determine call direction for display
     const isCallInbound = activity.direction === 'inbound';
 
@@ -66,9 +61,11 @@ const ActivityDetail = () => {
             }
 
             {/* Button to toggle archive state */}
-            <button className="page-btn" onClick={handleArchiveToggle}>
-                {isArchived ? 'Unarchive' : 'Archive'}
-            </button>
+            {!error && (
+                <button className="page-btn" onClick={handleArchiveToggle}>
+                    {isArchived ? 'Unarchive' : 'Archive'}
+                </button>
+            )}
         </div>
     );
 };
