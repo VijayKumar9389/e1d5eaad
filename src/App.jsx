@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from './Header.jsx';
+import Header from './components/Header/Header.jsx';
 import ActivityFeed from "./views/ActivityFeed/ActivityFeed.jsx";
 import ActivityDetails from "./views/ActivityDetails/ActivityDetails.jsx";
 

@@ -10,6 +10,8 @@
     margin-bottom: 10px;
 }
 
+
+/*Item Styles*/
 .activity-item {
     margin-bottom: 10px;
     padding: 10px;
@@ -83,9 +85,3 @@
     background-color: #218c17;
 }
 
-.no-activities {
-    text-align: center;
-    color: #666;
-    font-size: 1.5em;
-    margin-top: 20px;
-}

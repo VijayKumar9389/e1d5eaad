@@ -22,7 +22,7 @@ const ActivityFeed = () => {
 
     // Save viewArchived state to cookie whenever it changes
     useEffect(() => {
-        Cookies.set('viewArchived', viewArchived, { expires: 7 }); // Expires in 7 days
+        Cookies.set('viewArchived', viewArchived.toString(), { expires: 7 }); // Expires in 7 days
     }, [viewArchived]);
 
     if (loading) {

@@ -46,3 +46,18 @@ export const sortDates = groupedActivities => {
         return new Date(b) - new Date(a); // Sort other dates normally in descending order
     });
 };
+
+export const formatDate = (dateTimeString) => {
+    const options = {
+        year: 'numeric', month: 'short', day: 'numeric'
+    };
+    return new Date(dateTimeString).toLocaleDateString('en-US', options);
+};
+
+export const formatTime = (dateTimeString) => {
+    return new Date(dateTimeString).toLocaleTimeString([], {
+        hour: 'numeric',
+        minute: '2-digit',
+        hour12: true,
+    });
+};

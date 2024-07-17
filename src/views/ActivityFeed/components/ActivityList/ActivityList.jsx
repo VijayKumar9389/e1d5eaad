@@ -1,18 +1,20 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import './ActivityList.css';
-import { FiArrowDownLeft, FiArrowUpRight } from "react-icons/fi";
+import ActivityListItem from "./ActivityListItem.jsx";
+import {CautionMessage} from "../../../../components/Message/Message.jsx";
 
 const ActivityList = ({ groupedActivities, sortedDates, number }) => {
     const navigate = useNavigate();
 
-    // Navigate to the selected activity
+    // Function to navigate to the selected activity's detail page
     const selectedActivity = (activity) => {
         navigate(`/${activity.id}`);
     };
 
+    // Display a message if there are no activities to show
     if (number === 0) {
-        return <p className="no-activities">No activities to display</p>;
+        return CautionMessage({ caution: 'No activities to show' });
     }
 
     return (
@@ -22,37 +24,13 @@ const ActivityList = ({ groupedActivities, sortedDates, number }) => {
                     {/* Display the date */}
                     <h2 className="group-date">{date}</h2>
                     <ul className="activities-list">
-                        {groupedActivities[date].map(activity => {
-                            const isCallInbound = activity.direction === 'inbound';
-                            const callAnswered = activity.call_type === 'answered';
-
-                            // Format activity time
-                            const formattedTime = new Date(activity.created_at).toLocaleTimeString([], {
-                                hour: 'numeric',
-                                minute: '2-digit',
-                                hour12: true,
-                            });
-
-                            return (
-                                <li key={activity.id} className="activity-item" onClick={() => selectedActivity(activity)}>
-                                    <div className="call-info">
-                                        {/* Display call status */}
-                                        <div className={callAnswered ? 'green' : 'red'}>
-                                            {isCallInbound ? <FiArrowDownLeft className="status" /> : <FiArrowUpRight className="status" />}
-                                        </div>
-                                        <div>
-                                            {/* Display caller and call details */}
-                                            <p className="activity-number">
-                                                {isCallInbound ? activity.from : activity.to}
-                                            </p>
-                                            <p>{`${activity.call_type} ${isCallInbound ? 'call from' : 'call to'} ${isCallInbound ? activity.to : activity.from}`}</p>
-                                        </div>
-                                        {/* Display formatted time */}
-                                        <p className="time"><strong>{formattedTime}</strong></p>
-                                    </div>
-                                </li>
-                            );
-                        })}
+                        {groupedActivities[date].map(activity => (
+                            <ActivityListItem
+                                key={activity.id}
+                                activity={activity}
+                                onClick={selectedActivity}
+                            />
+                        ))}
                     </ul>
                 </div>
             ))}

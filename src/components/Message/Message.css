@@ -1,0 +1,33 @@
+.message {
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.message .msg-icon {
+    font-size: 3em;
+}
+
+.message p {
+    margin: 10px 0;
+}
+
+.error-message {
+    color: #666; /* Red color for error messages */
+
+    .msg-icon {
+        color: #f44336; /* Red color for error messages */
+    }
+}
+
+.caution-message {
+    color: #666; /* Yellow color for caution messages */
+
+    .msg-icon {
+        color: #ffeb3b; /* Yellow color for caution messages */
+    }
+}

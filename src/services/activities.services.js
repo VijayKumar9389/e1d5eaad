@@ -1,5 +1,6 @@
 const BASE_URL = 'https://aircall-backend.onrender.com';
 
+// This function fetches the activities from the API
 export const getActivities = async () => {
     try {
         const response = await fetch(`${BASE_URL}/activities`);
@@ -15,6 +16,7 @@ export const getActivities = async () => {
     }
 };
 
+// This function fetches a single activity by its ID
 export const getActivityById = async (callId) => {
     try {
         const response = await fetch(`${BASE_URL}/activities/${callId}`);
@@ -30,6 +32,7 @@ export const getActivityById = async (callId) => {
     }
 };
 
+// This function updates an activity by its ID
 export const updateActivity = async (callId, isArchived) => {
     try {
         const response = await fetch(`${BASE_URL}/activities/${callId}`, {
@@ -51,6 +54,7 @@ export const updateActivity = async (callId, isArchived) => {
     }
 };
 
+// This function resets all activities
 export const resetActivities = async () => {
     try {
         const response = await fetch(`${BASE_URL}/reset`, {

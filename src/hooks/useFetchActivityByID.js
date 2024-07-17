@@ -1,6 +1,7 @@
 import {getActivityById} from "../services/activities.services";
 import {useState, useEffect} from "react";
 
+// This hook fetches a single activity by its ID from the API
 const useFetchActivityByID = (callId) => {
     const [activity, setActivity] = useState({});
     const [loading, setLoading] = useState(true);
